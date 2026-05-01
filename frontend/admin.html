@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - KnowledgeHub</title>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Custom layout to replace framework dependencies */
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            width: 100%;
+        }
+
+        .header-section h1 {
+            margin-bottom: 0.5rem;
+            color: #f8fafc;
+        }
+
+        .header-section p {
+            margin-top: 0;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        /* Dashboard Layout: Two Columns */
+        .dashboard-layout {
+            display: flex;
+            gap: 2.5rem;
+            width: 100%;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .form-column {
+            flex: 0 0 360px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .list-column {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* Form Design */
+        .form-section {
+            padding: 1.75rem;
+            border-radius: 12px;
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #f8fafc;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group select option {
+            background-color: #111111;
+            color: #ffffff;
+        }
+
+        /* Button Improvements */
+        .btn-submit {
+            padding: 12px 16px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            border-radius: 8px;
+            border: none;
+            transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+            font-weight: 600;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px) scale(1.01);
+            filter: brightness(1.15);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Course List Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            padding-bottom: 0;
+            border-radius: 12px;
+            background: rgba(20, 20, 20, 0.7);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .course-card-body {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-category {
+            font-size: 0.75rem;
+            color: #d4af37;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .course-title {
+            margin: 0 0 0.75rem 0;
+            font-size: 1.15rem;
+            color: #f8fafc;
+            line-height: 1.3;
+        }
+
+        .course-description {
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn-delete {
+            background: rgba(220, 53, 69, 0.15);
+            color: #ff6b6b;
+            border: 1px solid rgba(220, 53, 69, 0.3);
+            padding: 0.45rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .btn-delete:hover {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .section-title {
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+            font-size: 1.4rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.4rem;
+            display: inline-block;
+            color: #f8fafc;
+        }
+
+        /* Empty State Styling */
+        .empty-state-card {
+            padding: 3.5rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px dashed rgba(212, 175, 55, 0.4);
+            background: rgba(20, 20, 20, 0.4);
+            grid-column: 1 / -1;
+            transition: all 0.3s ease;
+        }
+
+        .empty-state-card:hover {
+            background: rgba(20, 20, 20, 0.6);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+
+        .empty-state-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .empty-state-card h3 {
+            margin: 0 0 0.5rem 0;
+            color: #f8fafc;
+            font-size: 1.3rem;
+        }
+
+        .empty-state-card p {
+            margin: 0;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 850px) {
+            .dashboard-layout {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .form-column {
+                max-width: 100%;
+                width: 100%;
+                flex: none;
+            }
+
+            .list-column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="gold-theme">
+    <div class="auth-glow"></div>
+    <nav class="navbar navbar-glass sticky-top">
+        <a href="index.html" class="navbar-brand" style="text-decoration: none;">KnowledgeHub Admin</a>
+    </nav>
+
+    <main class="container">
+        <div class="header-section fade-in-up">
+            <h1 class="fw-bold">Admin Dashboard</h1>
+            <p class="text-secondary">Manage your platform's courses efficiently.</p>
+        </div>
+
+        <div class="dashboard-layout">
+            <!-- Left Column: Form -->
+            <div class="form-column fade-in-up" style="animation-delay: 0.1s;">
+                <section class="form-section glass-card">
+                    <h2 class="section-title">Add New Course</h2>
+                    <form id="courseForm">
+                        <div class="form-group">
+                            <label for="title">Course Title</label>
+                            <input type="text" id="title" name="title" required placeholder="e.g. Advanced Python">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="3" required
+                                placeholder="Enter short description..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Select a category</option>
+                                <option value="Programming">Programming</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Data Science">Data Science</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Image URL</label>
+                            <input type="url" id="image" name="image" required placeholder="https://example.com/image.jpg">
+                        </div>
+
+                        <button type="submit" class="btn-primary-gradient btn-submit">Add Course</button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- Right Column: List -->
+            <div class="list-column fade-in-up" style="animation-delay: 0.2s;">
+                <section>
+                    <h2 class="section-title">Course List</h2>
+                    <div class="courses-grid" id="courseList">
+                        <!-- Courses will be dynamically added here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <script src="js/api.js"></script>
+
+    <script>
+        const form = document.getElementById('courseForm');
+        const courseListContainer = document.getElementById('courseList');
+
+        async function fetchCourses() {
+            try {
+                // Fetching from the AdminController endpoint
+                const data = await apiFetch('/admin/courses');
+                renderCourses(data);
+            } catch (error) {
+                console.error("Error fetching courses:", error);
+                renderCourses([]); 
+            }
+        }
+
+        function renderCourses(coursesData) {
+            courseListContainer.innerHTML = '';
+
+            if (!coursesData || coursesData.length === 0) {
+                courseListContainer.innerHTML = `
+                    <div class="empty-state-card fade-in-up">
+                        <div class="empty-state-icon">ðŸ“š</div>
+                        <h3>No courses yet</h3>
+                        <p>Add your first course using the form on the left!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            coursesData.forEach((course, index) => {
+                const card = document.createElement('div');
+                card.className = 'glass-card course-card hover-lift fade-in-up';
+                card.style.animationDelay = ((index % 5) * 0.05) + "s";
+
+                card.innerHTML = `
+                    <div class="card-img-wrapper">
+                        <img src="${escapeHTML(course.thumbnail || '')}" alt="${escapeHTML(course.title || '')}" class="course-thumbnail" onerror="this.src='https://via.placeholder.com/400x200?text=No+Image'">
+                    </div>
+                    <div class="course-card-body">
+                        <div class="course-category">${escapeHTML(course.category || '')}</div>
+                        <h3 class="course-title">${escapeHTML(course.title || '')}</h3>
+                        <p class="course-description">${escapeHTML(course.description || '')}</p>
+                        <button class="btn-delete" onclick="deleteCourse(${course.id})">Delete</button>
+                    </div>
+                `;
+                courseListContainer.appendChild(card);
+            });
+        }
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const title = document.getElementById('title').value.trim();
+            const description = document.getElementById('description').value.trim();
+            const category = document.getElementById('category').value;
+            const thumbnail = document.getElementById('image').value.trim();
+
+            const newCourse = { title, description, category, thumbnail };
+
+           try {
+    await apiFetch('/admin/courses', {
+        method: 'POST',
+        body: JSON.stringify(newCourse)
+    });
+
+    alert("Course added successfully ðŸš€");
+    window.location.reload();
+
+} catch (error) {
+    console.error("Error adding course:", error);
+}
+        });
+
+        async function deleteCourse(id) {
+    if (confirm("Are you sure you want to delete this course?")) {
+        try {
+            await apiFetch(`/admin/courses/${id}`, {
+                method: 'DELETE'
+            });
+
+            fetchCourses(); // refresh list
+
+        } catch (error) {
+            console.error("Error deleting course:", error);
+        }
+    }
+}
+
+        // Init
+        fetchCourses();
+    </script>
+</body>
+
+</html>

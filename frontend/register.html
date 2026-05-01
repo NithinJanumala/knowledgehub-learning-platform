@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowledgeHub | Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column align-items-center justify-content-center gold-theme" style="min-height: 100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 auth-wrapper">
+                <div class="auth-glow d-none d-md-block"></div>
+                <div class="glass-card p-4 p-md-5">
+                    <div class="text-center mb-4">
+                        <a href="index.html" class="navbar-brand">KnowledgeHub</a>
+                        <h2 class="mt-4 mb-2 h3 fw-bold text-light">Create an Account</h2>
+                        <p class="text-muted small">Join KnowledgeHub and start learning today</p>
+                    </div>
+                    <div id="alert-box" class="alert d-none"></div>
+                    <form id="register-form">
+                        <div class="mb-3 input-icon-wrapper">
+                            <label class="form-label text-muted small fw-semibold">Full Name</label>
+                            <div class="position-relative">
+                                <input type="text" id="name" class="form-control" placeholder="e.g. John Doe" required>
+                                <i class="bi bi-person"></i>
+                            </div>
+                        </div>
+                        <div class="mb-3 input-icon-wrapper">
+                            <label class="form-label text-muted small fw-semibold">Email address</label>
+                            <div class="position-relative">
+                                <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="mb-4 input-icon-wrapper">
+                            <label class="form-label text-muted small fw-semibold">Password</label>
+                            <div class="position-relative">
+                                <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                                <i class="bi bi-lock"></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary-gradient w-100 py-2 mt-2">Sign Up</button>
+                    </form>
+                    <p class="text-center mt-4 text-muted small">
+                        Already have an account? <a href="login.html" class="text-light">Sign in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Minimal Interactive 3D Parallax Effect
+        document.addEventListener('mousemove', (e) => {
+            const card = document.querySelector('.glass-card');
+            if(!card) return;
+            // Calculate rotation based on cursor position relative to screen center
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
+            card.style.transform = `perspective(1200px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+        
+        // Reset translation on mouse leave body to ensure it snaps back smoothly
+        document.body.addEventListener('mouseleave', () => {
+            const card = document.querySelector('.glass-card');
+            if(card) {
+                card.style.transform = `perspective(1200px) rotateY(0deg) rotateX(0deg)`;
+                card.style.transition = 'transform 0.6s ease';
+            }
+        });
+        
+        // Remove snap transition when user enters so it feels responsive instantly
+        document.body.addEventListener('mouseenter', () => {
+            const card = document.querySelector('.glass-card');
+            if(card) {
+                card.style.transition = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,1244 @@
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #a855f7;
+  --bg-dark: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --text-light: #f8fafc;
+  --text-muted: #94a3b8;
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  position: relative;
+  z-index: 5; /* Keep main content above background */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Improve headings contrast against background */
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+}
+
+/* Navigation */
+.navbar-glass {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-light) !important;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+/* Custom Buttons */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  opacity: 0.9;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-outline-glass {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-light);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section p.lead,
+#course-container p.lead {
+  color: #f8fafc !important; /* Pure light text */
+  font-weight: 500; /* Enhance font weight */
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6); /* Drop shadow to pop from background */
+  letter-spacing: 0.3px;
+  margin-top: 5px; /* Slight spacing tweak */
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(15, 23, 42, 0) 70%);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+body.gold-theme .hero-section::before {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
+}
+
+/* Forms */
+.form-control,
+.form-select {
+  background-color: rgba(30, 41, 59, 0.6);
+  border: 1px solid var(--glass-border);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: rgba(30, 41, 59, 0.9);
+  border-color: var(--primary-color);
+  color: var(--text-light);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+.form-control::placeholder {
+  color: rgba(148, 163, 184, 0.6);
+  /* Slightly more visible than default muted */
+}
+
+/* Auth Specifics */
+.auth-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-glow {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05) 0%, rgba(15, 23, 42, 0) 60%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.input-icon-wrapper .position-relative {
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-wrapper .bi {
+  position: absolute;
+  left: 1rem;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.input-icon-wrapper .form-control {
+  padding-left: 2.75rem;
+}
+
+.input-icon-wrapper .form-control:focus+.bi {
+  color: var(--primary-color);
+}
+
+/* Course Image Cover */
+.course-thumbnail {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* --- 1. Background Enhancement --- */
+body {
+  background: radial-gradient(circle at 15% 50%, #1e1b4b 0%, #0f172a 100%);
+  color: #f8fafc;
+}
+
+/* --- 2. Text Visibility --- */
+.form-label {
+  color: #f8fafc !important; /* Pure white labels */
+  font-weight: 600;
+}
+
+.form-label.text-muted {
+  color: #e2e8f0 !important;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* --- 3. Input Fields & Focus Magic --- */
+.form-control, .form-select {
+  background-color: rgba(255, 255, 255, 0.08); /* Brighter input background */
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  color: #ffffff !important; /* Readable typed text */
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #6366f1;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3); /* Softer focus glow */
+  color: #ffffff !important;
+}
+
+.form-select option {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+/* --- 4. Card Design (Glassmorphism) --- */
+.glass-card {
+  position: relative;
+  z-index: 10; /* Always above background */
+  background: rgba(20, 28, 40, 0.75); /* Fixed contrast (darker card) */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card .text-muted {
+  color: #cbd5e1 !important; /* Better text visibility in cards */
+}
+
+/* --- 5. Button Enhancements --- */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  transform: translateY(-2px) scale(1.02);
+  /* Pop out effect */
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
+  /* Matching gradient glow */
+  color: #ffffff;
+}
+
+/* --- 6. Complex Animations --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(168, 85, 247, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes spinGlow {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.1); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+}
+
+/* Apply staggered entrance */
+.auth-wrapper .glass-card {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.auth-wrapper .glass-card > div.text-center {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards;
+}
+
+.auth-wrapper #register-form .input-icon-wrapper:nth-child(1) {
+  opacity: 0;
+  animation: slideInLeft 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+}
+
+.auth-wrapper #register-form .input-icon-wrapper:nth-child(2) {
+  opacity: 0;
+  animation: slideInLeft 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+}
+
+.auth-wrapper #register-form .input-icon-wrapper:nth-child(3) {
+  opacity: 0;
+  animation: slideInLeft 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
+}
+
+.auth-wrapper #register-form button {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+}
+
+.glass-card p.text-center.mt-4 {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+}
+
+/* Input Group Micro-Animations */
+.input-icon-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.input-icon-wrapper:focus-within {
+  transform: scale(1.02);
+}
+
+.input-icon-wrapper .form-control:focus + .bi {
+  color: var(--secondary-color);
+  animation: floatIcon 1.5s ease-in-out infinite;
+}
+
+/* Button Enhancements */
+.btn-primary-gradient {
+  background-size: 200% auto;
+  transition: all 0.4s ease;
+}
+
+.btn-primary-gradient:hover {
+  animation: gradientShift 2s ease infinite;
+}
+
+.btn-primary-gradient:focus {
+  animation: pulseGlow 1.5s infinite;
+  outline: none;
+}
+
+/* Enhanced Background Glow */
+.auth-glow {
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(from 0deg at 50% 50%, rgba(99, 102, 241, 0.05) 0deg, rgba(168, 85, 247, 0.05) 180deg, rgba(99, 102, 241, 0.05) 360deg);
+  filter: blur(80px); /* More blurred, less distracting */
+  animation: spinGlow 20s linear infinite; /* Slower animation */
+  pointer-events: none;
+}
+
+/* --- 7. Gold Theme Overrides --- */
+body.gold-theme {
+  /* Rich Gold Variables */
+  --primary-color: #d4af37; 
+  --secondary-color: #fceabb;
+  --bg-dark: #111111;
+  --card-bg: rgba(20, 20, 20, 0.75);
+  
+  /* Moving animated background */
+  background: linear-gradient(-45deg, #0f0f0f, #2a220a, #0a0a0a, #3d300d);
+  background-size: 400% 400%;
+  animation: moveBackground 15s ease infinite;
+}
+
+@keyframes moveBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes goldGlow {
+  0% { box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 15px rgba(212, 175, 55, 0.2); }
+  50% { box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45), 0 0 30px rgba(212, 175, 55, 0.5); }
+  100% { box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 15px rgba(212, 175, 55, 0.2); }
+}
+
+@keyframes pulseGoldGlow {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+body.gold-theme .auth-wrapper .glass-card {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  /* Combine entrance animation with continuous floating */
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, floatCard 6s ease-in-out infinite 0.8s;
+  transition: all 0.4s ease;
+}
+
+body.gold-theme .auth-wrapper .glass-card:hover {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, goldGlow 2s infinite;
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+body.gold-theme .auth-glow {
+  background: conic-gradient(from 0deg at 50% 50%, rgba(212, 175, 55, 0.04) 0deg, rgba(252, 234, 187, 0.05) 180deg, rgba(212, 175, 55, 0.04) 360deg);
+  filter: blur(80px);
+}
+
+body.gold-theme .form-control {
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+body.gold-theme .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
+}
+
+body.gold-theme .input-icon-wrapper .form-control:focus + .bi {
+  color: var(--primary-color);
+}
+
+body.gold-theme .btn-primary-gradient {
+  background: linear-gradient(135deg, #d4af37, #fceabb, #b48c22);
+  background-size: 200% auto;
+  color: #1a1a1a;
+  font-weight: 700;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+body.gold-theme .btn-primary-gradient:focus {
+  animation: pulseGoldGlow 1.5s infinite;
+}
+
+body.gold-theme .btn-primary-gradient:hover {
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+  color: #000;
+}
+
+body.gold-theme .navbar-brand {
+  background: linear-gradient(90deg, #d4af37, #fceabb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- 8. Advanced 3D & Premium Enhancements --- */
+
+/* 1. True 3D Depth on Body */
+body.gold-theme {
+  perspective: 1200px;
+}
+
+/* 2. Floating Orbs for cinematic depth */
+body.gold-theme::before,
+body.gold-theme::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -1;
+  pointer-events: none;
+  animation: cinematicOrbX 18s ease-in-out infinite alternate, cinematicOrbY 25s ease-in-out infinite alternate;
+}
+
+body.gold-theme::before {
+  width: 45vw;
+  height: 45vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: rgba(212, 175, 55, 0.03); /* Significantly reduced opacity */
+  top: 5%;
+  left: 5%;
+}
+
+body.gold-theme::after {
+  width: 35vw;
+  height: 35vw;
+  max-width: 400px;
+  max-height: 400px;
+  background: rgba(252, 234, 187, 0.02); /* Significantly reduced opacity */
+  bottom: 10%;
+  right: 10%;
+  animation-delay: -7s;
+  animation-duration: 20s, 28s;
+}
+
+@keyframes cinematicOrbX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(40vw); }
+}
+
+@keyframes cinematicOrbY {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(30vh); }
+}
+
+/* 3. Shift float animation to wrapper to allow JS Parallax */
+body.gold-theme .auth-wrapper {
+  animation: floatCard 6s ease-in-out infinite 1s;
+}
+
+body.gold-theme .auth-wrapper .glass-card {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  transform-style: preserve-3d; /* Depth layering */
+}
+
+/* Depth for elements inside the 3D card */
+body.gold-theme .auth-wrapper .glass-card > div,
+body.gold-theme .auth-wrapper .glass-card > form {
+  transform: translateZ(40px);
+  transform-style: preserve-3d;
+}
+
+/* 4. Input Micro Interactions */
+.input-icon-wrapper {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  transform-style: preserve-3d;
+}
+
+.input-icon-wrapper:focus-within {
+  transform: translateY(-4px) scale(1.02) translateZ(15px) !important;
+}
+
+/* 5. Premium Button Shine & Ripple */
+.btn-primary-gradient {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary-gradient::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: rotate(45deg) translate(-100%, -50%);
+  transition: all 0.1s;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.btn-primary-gradient:hover::after {
+  animation: glossyShine 1.2s ease forwards;
+}
+
+@keyframes glossyShine {
+  0% { transform: rotate(45deg) translate(-100%, -50%); opacity: 1; }
+  100% { transform: rotate(45deg) translate(200%, -50%); opacity: 1; }
+}
+
+.btn-primary-gradient:active {
+  transform: scale(0.96) translateZ(-5px);
+}
+
+/* 6. Link Hover Animation */
+p.text-center.mt-4 a {
+  position: relative;
+  color: var(--secondary-color, #fceabb) !important;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+p.text-center.mt-4 a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--secondary-color, #fceabb);
+  transition: width 0.3s ease;
+}
+
+p.text-center.mt-4 a:hover::after {
+  width: 100%;
+}
+
+/* ==============================================================
+   7. Thumbnail Image Enhancements
+   ============================================================== */
+
+.card-img-wrapper {
+  overflow: hidden;
+  position: relative;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.course-thumbnail {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hover-lift:hover .course-thumbnail {
+  transform: scale(1.08);
+}
+
+/* ==============================================================
+   7. Typography High-Contrast Visibility Overrides
+   ============================================================== */
+
+/* Primary Texts */
+body.gold-theme,
+body.gold-theme h1, 
+body.gold-theme h2, 
+body.gold-theme h3, 
+body.gold-theme h4, 
+body.gold-theme h5, 
+body.gold-theme h6,
+body.gold-theme .text-light,
+body.gold-theme p.lead {
+  color: #f8fafc !important; 
+}
+
+/* Secondary Flow Texts */
+body.gold-theme .text-secondary,
+body.gold-theme p:not(.text-muted):not(.small) {
+  color: #cbd5e1 !important;
+}
+
+/* Background/Muted Text Fixes (Descriptions, Labels) */
+body.gold-theme .text-muted,
+body.gold-theme .small,
+body.gold-theme small,
+body.gold-theme .form-label,
+body.gold-theme .form-text,
+body.gold-theme .text-white-50 {
+  color: #94a3b8 !important;
+}
+
+/* Enhanced Subtitles for Course/Dashboard that might blend in */
+body.gold-theme .glass-card .text-muted,
+body.gold-theme .timeline-item .text-muted {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+}
+
+/* ==============================================================
+   8. Dashboard Layout Utilities
+   ============================================================== */
+
+.fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.horizontal-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid rgba(212, 175, 55, 0.3);
+  margin-bottom: 20px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+/* ==============================================================
+   9. Clean Modern SaaS Dashboard (Stripe/Linear Inspired)
+   ============================================================== */
+
+/* Base Typography Refinements */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+}
+
+/* Minimalist Glass Cards - Removing heavy glow */
+.glass-card {
+  background: rgba(30, 41, 59, 0.4) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 12px !important; /* Slightly sharper modern corners */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Clear out overly decorative gold-theme glow for dashboard elements specifically */
+body.gold-theme .glass-card {
+  background: rgba(20, 20, 22, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.gold-theme .glass-card:hover {
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(212, 175, 55, 0.15) !important;
+}
+
+/* Stats Cards (Top row) */
+#dashboard-stats .glass-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start !important; /* Align text left for structured look */
+  text-align: left !important;
+  padding: 1.5rem !important;
+}
+
+/* Typography Hierarchy in Stats */
+#dashboard-stats .glass-card h3 {
+  font-size: 2rem;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
+  margin-bottom: 4px !important;
+  letter-spacing: -0.04em;
+  background: none; /* Removed heavy gradients from numbers */
+  -webkit-text-fill-color: #f8fafc;
+}
+
+#dashboard-stats .glass-card p {
+  font-size: 0.8rem !important;
+  font-weight: 500;
+  color: #94a3b8 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0 !important;
+}
+
+#dashboard-stats .glass-card i {
+  font-size: 1.4rem !important;
+  color: var(--primary-color) !important;
+  margin-bottom: 12px !important;
+  text-shadow: none !important; /* Remove glow from icons */
+  background: rgba(99, 102, 241, 0.1);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+body.gold-theme #dashboard-stats .glass-card i {
+  color: #d4af37 !important;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Course Cards Grid Enhancements */
+#enrolled-courses-grid .glass-card {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+#enrolled-courses-grid .glass-card > .p-4 {
+  padding: 1.25rem !important;
+}
+
+/* Subdued course thumbnails with subtle zoom */
+.course-thumbnail {
+  height: 140px !important; /* Reduced further for tight layout */
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0 !important;
+  transition: transform 0.4s ease !important;
+}
+
+.glass-card:hover .course-thumbnail {
+  transform: scale(1.03) !important; /* Subtle zoom, not aggressive */
+}
+
+/* Typography inside Course Cards */
+#enrolled-courses-grid .glass-card h5 {
+  font-size: 1.1rem;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  color: #f8fafc !important;
+}
+
+#enrolled-courses-grid .glass-card p {
+  color: #94a3b8 !important;
+  line-height: 1.5;
+  font-size: 0.85rem !important;
+}
+
+/* Action Buttons Minimal */
+.btn-primary-gradient {
+  background: var(--primary-color) !important;
+  border-radius: 6px !important;
+  padding: 8px 16px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0;
+  box-shadow: none !important;
+  transition: background 0.2s ease !important;
+}
+
+.btn-primary-gradient:hover {
+  background: #4f46e5 !important;
+  transform: none !important; /* No pop out */
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3) !important;
+}
+
+body.gold-theme .btn-primary-gradient {
+  background: #d4af37 !important; /* Clean flat accent color */
+  color: #111 !important;
+  text-shadow: none !important;
+}
+
+/* Recent Activity Widget */
+#recent-activity {
+  background: rgba(30, 41, 59, 0.3) !important;
+  border-top: none !important; /* Remove heavy top border */
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 1.5rem !important;
+  border-radius: 12px !important;
+}
+
+body.gold-theme #recent-activity {
+  background: rgba(20, 20, 22, 0.4) !important;
+}
+
+/* Widget Header */
+#recent-activity h6 {
+  font-size: 0.9rem;
+  color: #f8fafc !important;
+  font-weight: 600;
+}
+
+#recent-activity small {
+  color: #94a3b8 !important;
+  font-size: 0.8rem;
+}
+
+/* Activity Icon Minimal */
+#recent-activity .bg-opacity-25 {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px !important;
+}
+
+#recent-activity .bg-opacity-25 i {
+  font-size: 1.1rem;
+  color: #94a3b8 !important;
+  text-shadow: none !important;
+}
+
+/* Progress bar minimal */
+#recent-activity .progress {
+  height: 6px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+#recent-activity .progress-bar {
+  background: var(--primary-color) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important; /* Removed glow */
+}
+
+body.gold-theme #recent-activity .progress-bar {
+  background: #d4af37 !important;
+}
+
+/* Recommended Cards */
+#recommended-courses .glass-card {
+  padding: 0 !important;
+}
+
+#recommended-courses .glass-card h6 {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+#recommended-courses .glass-card small {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8 !important;
+}
+
+/* ==============================================================
+   10. New Homepage Components & Footer Utilities
+   ============================================================== */
+
+/* Utility Classes */
+.tracking-tight { letter-spacing: -0.04em; }
+.tracking-wider { letter-spacing: 0.05em; }
+.transition-colors { transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease; }
+.hover-text-primary:hover { color: var(--primary-color) !important; }
+.hover-text-light:hover { color: #f8fafc !important; }
+
+
+
+/* Center Navigation Updates */
+.navbar-nav .nav-link {
+  color: #94a3b8 !important;
+  transition: color 0.2s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #f8fafc !important;
+}
+
+/* Footer Styling */
+footer {
+  font-family: inherit;
+}
+
+/* ==============================================================
+   11. Global Theme Standardization (Dark & Gold)
+   ============================================================== */
+
+/* 11.1 Root Variable Overrides */
+:root, body, body.gold-theme, body.saas-theme {
+  --primary-color: #facc15 !important;
+  --secondary-color: #ca8a04 !important;
+  --bg-dark: #0b0f1a !important;
+  --card-bg: #111827 !important;
+  --text-light: #ffffff !important;
+  --text-muted: #cbd5e1 !important;
+  --glass-border: rgba(250, 204, 21, 0.15) !important;
+  background-color: #0b0f1a !important;
+  color: #ffffff !important;
+}
+
+/* 11.2 Text Visibility Fixes */
+h1, h2, h3, h4, h5, h6, .text-light, .text-white, a, p, span, div {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important; /* Strong contrast */
+}
+
+h1, h2, h3, h4, h5, h6, .text-light, .text-white, .display-3, .display-4, .display-5, .display-6 {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+p, span, small, .text-muted, .small, .lead {
+  color: #cbd5e1 !important;
+  opacity: 1 !important;
+}
+
+.text-primary-gradient, .text-primary {
+  color: #facc15 !important;
+  background: none !important;
+  -webkit-text-fill-color: #facc15 !important;
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.3) !important;
+}
+
+/* 11.3 Navbar & Footer Standardization */
+.navbar-glass, footer, .navbar-dark {
+  background: rgba(11, 15, 26, 0.95) !important;
+  border-bottom: 1px solid rgba(250, 204, 21, 0.1) !important;
+  border-top: 1px solid rgba(250, 204, 21, 0.1) !important;
+}
+
+.navbar-brand i, .navbar-brand {
+  color: #facc15 !important;
+  background: none !important;
+  -webkit-text-fill-color: #facc15 !important;
+}
+
+.navbar-nav .nav-link {
+  color: #cbd5e1 !important;
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 11.4 Card UI Improvement (All Cards Consistent) */
+.glass-card, #recent-activity, .lesson-card {
+  background: #111827 !important;
+  border: 1px solid rgba(250, 204, 21, 0.1) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: none !important; /* Performance & solid color */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.glass-card:hover, .lesson-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(250, 204, 21, 0.15) !important;
+  border-color: rgba(250, 204, 21, 0.4) !important;
+}
+
+/* 11.5 Buttons Standardization */
+.btn-primary-gradient, .btn-primary {
+  background: linear-gradient(135deg, #facc15, #ca8a04) !important;
+  color: #000000 !important;
+  text-shadow: none !important;
+  border: none !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(250, 204, 21, 0.2) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.btn-primary-gradient:hover, .btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 15px rgba(250, 204, 21, 0.4) !important;
+  color: #000000 !important;
+}
+
+.btn-outline-glass, .btn-outline-light {
+  background: transparent !important;
+  border: 1px solid rgba(250, 204, 21, 0.3) !important;
+  color: #facc15 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-outline-glass:hover, .btn-outline-light:hover {
+  background: rgba(250, 204, 21, 0.1) !important;
+  color: #ffffff !important;
+  border-color: #facc15 !important;
+}
+
+/* 11.6 Remove All Blue/Purple Glows */
+.hero-glow-1, .hero-glow-2, [style*="radial-gradient"], .bg-primary.bg-opacity-10, .bg-danger, .bg-success, .bg-warning {
+  background: rgba(250, 204, 21, 0.05) !important;
+}
+
+.text-danger, .text-success, .text-warning, .text-info {
+  color: #facc15 !important;
+}
+
+/* 11.7 Dashboard Specific Fixes */
+#dashboard-stats .glass-card {
+  align-items: center !important;
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+#dashboard-stats .glass-card i {
+  color: #facc15 !important;
+  background: rgba(250, 204, 21, 0.1) !important;
+  font-size: 2rem !important;
+  padding: 12px !important;
+  border-radius: 12px !important;
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1) !important;
+  height: 8px !important;
+  border-radius: 4px !important;
+}
+
+.progress-bar {
+  background: #facc15 !important;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.5) !important;
+}
+
+.course-card img, .course-thumbnail {
+  width: 100% !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.course-card:hover .course-thumbnail, .glass-card:hover .course-thumbnail {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.course-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #facc15;
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==============================================================
+   Account Dropdown Fix
+   ============================================================== */
+.account-menu {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #111827;
+    border: 1px solid rgba(250, 204, 21, 0.15);
+    border-radius: 12px;
+    padding: 15px;
+    min-width: 180px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 1000;
+}
+
+.dropdown a {
+    display: block;
+    padding: 12px 15px;
+    color: #e2e8f0;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+}
+
+.dropdown a:hover {
+    background: rgba(250, 204, 21, 0.1);
+    color: #facc15;
+}
+
+.dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ==============================================================
+   Global Transitions & Animations
+   ============================================================== */
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.input-glow-wrap {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  border-radius: 6px;
+}
+
+.input-glow-wrap:focus-within {
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.25);
+}
+
+.input-glow-wrap:focus-within .input-group-text,
+.input-glow-wrap:focus-within .form-control {
+  border-color: rgba(250, 204, 21, 0.5) !important;
+}
+
+.form-control:focus {
+  background-color: transparent !important;
+  color: #fff !important;
+}

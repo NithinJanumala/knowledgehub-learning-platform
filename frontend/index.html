@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowledgeHub | Learn Skills That Actually Matter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="saas-theme d-flex flex-column min-vh-100">
+    <!-- Modern Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-glass sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+                <i class="bi bi-layers-fill text-primary"></i> KnowledgeHub
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Center Navigation -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium">
+                    <li class="nav-item">
+                        <a class="nav-link active px-3" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="dashboard.html">My Learning</a>
+                    </li>
+                </ul>
+                
+                <!-- Right Navigation (Injected via JS) -->
+                <ul class="navbar-nav ms-auto align-items-center gap-2" id="nav-user-section">
+                        <!-- Nav items injected via JS. CSS will style them cleanly. -->
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1">
+        <!-- 1. Hero Section -->
+        <section class="hero-section text-center position-relative pt-5 pb-5 mt-4">
+            <div class="container position-relative z-2">
+                <div class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 px-3 py-2 rounded-pill mb-4 mb-3 fw-medium">
+                    <i class="bi bi-stars"></i> Unlock Your Potential Today
+                </div>
+                <h1 class="display-3 fw-bolder mb-4 text-light tracking-tight">Learn Skills That <span class="text-primary-gradient">Actually Matter</span></h1>
+                <p class="lead text-muted mb-5 mx-auto" style="max-width: 600px;">
+                    Join thousands of learners mastering web development, programming, and databases through structured paths and real-world projects.
+                </p>
+                
+                <div class="d-flex justify-content-center gap-3 mt-4">
+                    <a href="courses.html" class="btn btn-lg btn-outline-glass rounded-pill px-4 fw-medium">Browse Courses</a>
+                    <a href="register.html" class="btn btn-lg btn-primary-gradient rounded-pill px-4 fw-medium shadow-sm">Start Learning <i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Categories Section -->
+        <section class="container py-5 mt-4">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase tracking-wider">Top Categories</h6>
+                <h2 class="h3 fw-bold text-light">Explore by Subject</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Web Dev -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="glass-card hover-lift p-4 text-center h-100 rounded-4">
+                        <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-4 d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; font-size: 1.8rem;">
+                            <i class="bi bi-browser-chrome"></i>
+                        </div>
+                        <h5 class="fw-bold text-light mb-1">Web Development</h5>
+                        <p class="text-muted small mb-0">React, Node, HTML, CSS</p>
+                    </div>
+                </div>
+                <!-- Java -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="glass-card hover-lift p-4 text-center h-100 rounded-4">
+                        <div class="icon-square bg-danger bg-opacity-10 text-danger rounded-4 d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; font-size: 1.8rem;">
+                            <i class="bi bi-cup-hot"></i>
+                        </div>
+                        <h5 class="fw-bold text-light mb-1">Java</h5>
+                        <p class="text-muted small mb-0">Spring Boot, Core Java</p>
+                    </div>
+                </div>
+                <!-- Python -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="glass-card hover-lift p-4 text-center h-100 rounded-4">
+                        <div class="icon-square bg-warning bg-opacity-10 text-warning rounded-4 d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; font-size: 1.8rem;">
+                            <i class="bi bi-filetype-py"></i>
+                        </div>
+                        <h5 class="fw-bold text-light mb-1">Python</h5>
+                        <p class="text-muted small mb-0">Django, Data Science</p>
+                    </div>
+                </div>
+                <!-- Databases -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="glass-card hover-lift p-4 text-center h-100 rounded-4">
+                        <div class="icon-square bg-success bg-opacity-10 text-success rounded-4 d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; font-size: 1.8rem;">
+                            <i class="bi bi-database"></i>
+                        </div>
+                        <h5 class="fw-bold text-light mb-1">Databases</h5>
+                        <p class="text-muted small mb-0">SQL, MongoDB, Redis</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Featured Courses Section -->
+        <section class="container py-5 mt-2" id="courses-section">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    <h6 class="text-primary fw-bold text-uppercase tracking-wider">Curated Curriculum</h6>
+                    <h2 class="h3 fw-bold text-light mb-0">Featured Courses</h2>
+                </div>
+                <a href="#courses-section" class="text-muted text-decoration-none hover-text-primary fw-medium small">View All <i class="bi bi-arrow-right"></i></a>
+            </div>
+            
+            <div class="row g-4" id="courses-grid">
+                <!-- Courses injected via JS -->
+                <div class="text-center py-5 w-100">
+                    <div class="spinner-border text-primary" role="status"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Why Choose Us Section -->
+        <section class="container py-5 my-5">
+            <div class="glass-card p-5 rounded-5 border-0 overflow-hidden position-relative">
+                <!-- Decorative background line -->
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-10" style="background-image: radial-gradient(circle at center, rgba(99, 102, 241, 0.4) 0, transparent 60%);"></div>
+                
+                <div class="row align-items-center position-relative z-2">
+                    <div class="col-lg-5 mb-4 mb-lg-0 pe-lg-5">
+                        <h6 class="text-primary fw-bold text-uppercase tracking-wider">Why Choose Us</h6>
+                        <h2 class="display-6 fw-bold text-light mb-4 tracking-tight">The smartest way to build your skills</h2>
+                        <p class="text-muted lead mb-4">We focus on practical, project-based learning to ensure you're job-ready from day one.</p>
+                        <a href="register.html" class="btn btn-outline-light rounded-pill px-4">Learn more about us</a>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="glass-card p-4 h-100 hover-lift bg-dark bg-opacity-50 border-white border-opacity-10">
+                                    <i class="bi bi-rocket-takeoff text-primary fs-3 mb-3 d-block"></i>
+                                    <h5 class="fw-bold text-light">Easy Learning</h5>
+                                    <p class="text-muted small mb-0">Bite-sized modules designed for maximum retention and minimum burnout.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="glass-card p-4 h-100 hover-lift bg-dark bg-opacity-50 border-white border-opacity-10 mt-md-4">
+                                    <i class="bi bi-laptop text-secondary fs-3 mb-3 d-block"></i>
+                                    <h5 class="fw-bold text-light">Real Projects</h5>
+                                    <p class="text-muted small mb-0">Build actual applications you can showcase in your portfolio immediately.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-md-n4">
+                                <div class="glass-card p-4 h-100 hover-lift bg-dark bg-opacity-50 border-white border-opacity-10">
+                                    <i class="bi bi-map text-success fs-3 mb-3 d-block"></i>
+                                    <h5 class="fw-bold text-light">Structured Paths</h5>
+                                    <p class="text-muted small mb-0">Follow guided curriculums from beginner basics to advanced architecture.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Final CTA Section -->
+        <section class="py-5 mt-3 mb-5 text-center">
+            <div class="container">
+                <h2 class="display-5 fw-bold text-light mb-3 tracking-tight">Start your learning journey today</h2>
+                <p class="lead text-muted mb-4 max-w-2xl mx-auto">Join a community of developers leveling up their careers.</p>
+                <a href="#courses-section" class="btn btn-lg btn-primary-gradient rounded-pill px-5 py-3 fw-bold shadow-lg">Explore Courses <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Modern Footer -->
+    <footer class="mt-auto py-5 border-top border-white border-opacity-10" style="background: rgba(15, 23, 42, 0.8);">
+        <div class="container">
+            <div class="row g-4 mb-4 pb-4 border-bottom border-white border-opacity-10">
+                <!-- Left -->
+                <div class="col-lg-4 col-md-6">
+                    <a class="navbar-brand fw-bold d-flex align-items-center gap-2 mb-3 fs-4 text-light text-decoration-none" href="index.html">
+                        <i class="bi bi-layers-fill text-primary"></i> KnowledgeHub
+                    </a>
+                    <p class="text-muted small mb-0 pe-md-5">Learn. Build. Grow. <br>The most effective way to master modern software development through hands-on, interactive courses.</p>
+                </div>
+                <!-- Center Links -->
+                <div class="col-lg-4 col-md-6 d-flex justify-content-lg-center">
+                    <div>
+                        <h6 class="text-light fw-bold mb-3">Quick Links</h6>
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                            <li><a href="index.html" class="text-muted text-decoration-none hover-text-light transition-colors small">Home</a></li>
+                            <li><a href="#courses-section" class="text-muted text-decoration-none hover-text-light transition-colors small">Courses</a></li>
+                            <li><a href="dashboard.html" class="text-muted text-decoration-none hover-text-light transition-colors small">My Learning</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Right Socials -->
+                <div class="col-lg-4 col-md-12 d-flex justify-content-lg-end">
+                    <div>
+                        <h6 class="text-light fw-bold mb-3">Connect With Us</h6>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-muted hover-text-primary transition-colors fs-5"><i class="bi bi-github"></i></a>
+                            <a href="#" class="text-muted hover-text-primary transition-colors fs-5"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-muted hover-text-primary transition-colors fs-5"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="text-muted hover-text-primary transition-colors fs-5"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-muted small mb-0">Â© 2026 KnowledgeHub. All rights reserved.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-muted text-decoration-none small hover-text-light transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-muted text-decoration-none small hover-text-light transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
+

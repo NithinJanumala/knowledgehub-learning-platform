@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowledgeHub | Learn Skills That Actually Matter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="saas-theme d-flex flex-column min-vh-100">
+    <!-- Modern Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-glass sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+                <i class="bi bi-layers-fill text-primary"></i> KnowledgeHub
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Center Navigation -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium">
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-3" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="dashboard.html">My Learning</a>
+                    </li>
+                </ul>
+                
+                <!-- Right Navigation (Injected via JS) -->
+                <ul class="navbar-nav ms-auto align-items-center gap-2" id="nav-user-section">
+                        <!-- Nav items injected via JS. CSS will style them cleanly. -->
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1">
+        <!-- Courses Header & Search -->
+        <section class="container pt-5 pb-3 mt-4">
+            <div class="row align-items-end mb-4">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h6 class="text-primary fw-bold text-uppercase tracking-wider">Browse Catalog</h6>
+                    <h1 class="display-5 fw-bolder text-light mb-0 tracking-tight">All Courses</h1>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card p-2 rounded-pill shadow-sm border border-secondary border-opacity-25">
+                        <form id="search-form" class="d-flex flex-column flex-md-row gap-2 m-0">
+                            <div class="position-relative flex-grow-1">
+                                <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                                <input type="text" id="search-input" class="form-control border-0 bg-transparent shadow-none ps-5 text-light" placeholder="Search courses...">
+                            </div>
+                            <div class="vr bg-secondary opacity-25 d-none d-md-block mx-1"></div>
+                            <select id="category-filter" class="form-select border-0 bg-transparent shadow-none text-muted" style="max-width: 160px; cursor: pointer;">
+                                <option value="" class="bg-dark text-light">All Categories</option>
+                                <option value="Web Development" class="bg-dark text-light">Web Dev</option>
+                                <option value="Java" class="bg-dark text-light">Java</option>
+                                <option value="Python" class="bg-dark text-light">Python</option>
+                                <option value="Databases" class="bg-dark text-light">Databases</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary-gradient rounded-pill px-4 fw-bold shadow-sm">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4" id="courses-grid">
+                <!-- Courses injected via JS -->
+                <div class="text-center py-5 w-100">
+                    <div class="spinner-border text-primary" role="status"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Modern Footer -->
+    <footer class="mt-auto py-5 border-top border-white border-opacity-10" style="background: rgba(15, 23, 42, 0.8);">
+        <div class="container">
+            <div class="row g-4 mb-4 pb-4 border-bottom border-white border-opacity-10">
+                <!-- Left -->
+                <div class="col-lg-4 col-md-6">
+                    <a class="navbar-brand fw-bold d-flex align-items-center gap-2 mb-3 fs-4 text-light text-decoration-none" href="index.html">
+                        <i class="bi bi-layers-fill text-primary"></i> KnowledgeHub
+                    </a>
+                    <p class="text-muted small mb-0 pe-md-5">Learn. Build. Grow. <br>The most effective way to master modern software development through hands-on, interactive courses.</p>
+                </div>
+                <!-- Center Links -->
+                <div class="col-lg-4 col-md-6 d-flex justify-content-lg-center">
+                    <div>
+                        <h6 class="text-light fw-bold mb-3">Quick Links</h6>
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                            <li><a href="index.html" class="text-muted text-decoration-none hover-text-light transition-colors small">Home</a></li>
+                            <li><a href="#courses-section" class="text-muted text-decoration-none hover-text-light transition-colors small">Courses</a></li>
+                            <li><a href="dashboard.html" class="text-muted text-decoration-none hover-text-light transition-colors small">My Learning</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Right Socials -->
+                <div class="col-lg-4 col-md-12 d-flex justify-content-lg-end">
+                    <div>
+                        <h6 class="text-light fw-bold mb-3">Connect With Us</h6>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-muted hover-text-primary transition-colors fs-5"><i class="bi bi-github"></i></a>
+                            <a href="#" class="text-muted hover-text-primary transition-colors fs-5"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-muted hover-text-primary transition-colors fs-5"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="text-muted hover-text-primary transition-colors fs-5"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-muted small mb-0">Â© 2026 KnowledgeHub. All rights reserved.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-muted text-decoration-none small hover-text-light transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-muted text-decoration-none small hover-text-light transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/courses.js"></script>
+</body>
+</html>
+
