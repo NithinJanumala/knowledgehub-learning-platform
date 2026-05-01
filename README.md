@@ -1,4 +1,13 @@
 # KnowledgeHub E-Learning Platform
+## 🌐 Live Preview
+
+> ⚠️ This project runs locally (backend required)
+
+Frontend:
+http://localhost:3000 (or your serve port)
+
+Backend:
+http://localhost:8080
 
 KnowledgeHub is a full-stack e-learning web application built with **Spring Boot (backend)** and **vanilla HTML, CSS, JavaScript (frontend)**.
 
@@ -21,7 +30,7 @@ KnowledgeHub is a full-stack e-learning web application built with **Spring Boot
 
 * **Backend:** Spring Boot (Java)
 * **Frontend:** HTML, CSS, JavaScript, Bootstrap 5
-* **Database:** SQLite 
+* **Database:** Database: SQLite (file-based local database)
 * **Authentication:** JWT-based login system
 
 ---
@@ -110,3 +119,7 @@ frontend/index.html
 ## 👨‍💻 Author
 
 Developed by: Nithin Janumala
+
+## 📌 Project Purpose
+
+This project was built to demonstrate full-stack development skills using Spring Boot and JavaScript, including authentication, REST APIs, and dynamic UI interactions.
